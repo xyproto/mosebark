@@ -20,7 +20,7 @@ func notFound2(ctx *web.Context, val string) {
 func ServeEngines(userState *genericsite.UserState, mainMenuEntries genericsite.MenuEntries) {
 	// The user engine
 	userEngine := siteengines.NewUserEngine(userState)
-	userEngine.ServePages("jøkulhlaup.com")
+	userEngine.ServePages("mosebark.roboticoverlords.org")
 
 	// The admin engine
 	adminEngine := siteengines.NewAdminEngine(userState)
@@ -34,7 +34,7 @@ func ServeEngines(userState *genericsite.UserState, mainMenuEntries genericsite.
 func main() {
 
 	// UserState with a Redis Connection Pool
-	userState := genericsite.NewUserState(3)
+	userState := genericsite.NewUserState(4)
 	defer userState.Close()
 
 	// The archlinux.no webpage,
