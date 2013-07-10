@@ -1,0 +1,13 @@
+[Unit]
+Description=Mosebark development server
+
+[Service]
+Type=simple
+User=alexander
+ExecStart=/home/alexander/go/src/github.com/xyproto/mosebark/compileloop.sh &
+WorkingDirectory=/home/alexander/go/src/github.com/xyproto/mosebark
+PIDFile=/tmp/mosebarkweb.pid
+Environment=GOPATH=/home/alexander/go
+
+[Install]
+WantedBy=multi-user.target
