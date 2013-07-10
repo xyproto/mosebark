@@ -54,6 +54,6 @@ func main() {
 	// if ctx.Request.Method == "HEAD" { return }
 	// See also: curl -I
 
-	// Serve on port 3003 for the Nginx instance to use
-	web.Run("0.0.0.0:3003")
+	// Serve on port 3004 for the Nginx instance to use
+	web.Run("0.0.0.0:3004")
 }

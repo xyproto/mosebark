@@ -56,8 +56,8 @@ func MosebarkBaseTitleCP(contentTitle string, userState *UserState) *ContentPage
 
 func OverviewCP(userState *UserState, url string) *ContentPage {
 	cp := MosebarkBaseCP(userState)
-	cp.ContentTitle = `<a href="http://snl.no/j%C3%B8kulhlaup">About</a>`
-	cp.ContentHTML = `<img src="http://upload.wikimedia.org/wikipedia/commons/b/b3/Hubbard_Glacier_August_14.2002.jpg">`
+	cp.ContentTitle = `Mosebark`
+	cp.ContentHTML = `<h2>Mosebark</h2>`
 	cp.Url = url
 	return cp
 }
