@@ -1,4 +1,11 @@
-mosebark
-========
+The website for Mosebark
+=======================
 
-mosebark.roboticoverlords.org
+The beginnings of a website for Mosebark
+
+License
+=======
+
+MIT licensed
+
+Alexander Rødseth, 2013
