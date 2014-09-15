@@ -6,12 +6,13 @@ import (
 
 	. "github.com/xyproto/genericsite"
 	. "github.com/xyproto/siteengines"
+	"github.com/xyproto/permissions"
 )
 
 // TODO: Font for headline: IM Fell Double Pica SC
 
 // The default settings for Mosebark content pages
-func MosebarkBaseCP(state *UserState) *ContentPage {
+func MosebarkBaseCP(state *permissions.UserState) *ContentPage {
 	cp := DefaultCP(state)
 	cp.Title = "Mosebark Underskog"
 	cp.Subtitle = "API wrapper"
@@ -48,21 +49,21 @@ func MosebarkBaseCP(state *UserState) *ContentPage {
 }
 
 // Returns a MosebarkBaseCP with the contentTitle set
-func MosebarkBaseTitleCP(contentTitle string, userState *UserState) *ContentPage {
+func MosebarkBaseTitleCP(contentTitle string, userState *permissions.UserState) *ContentPage {
 	cp := MosebarkBaseCP(userState)
 	cp.ContentTitle = contentTitle
 	return cp
 }
 
-func OverviewCP(userState *UserState, url string) *ContentPage {
+func OverviewCP(userState *permissions.UserState, url string) *ContentPage {
 	cp := MosebarkBaseCP(userState)
 	cp.ContentTitle = `Mosebark`
-	cp.ContentHTML = `<h2>Mosebark</h2>`
+	cp.ContentHTML = `Coming soon`
 	cp.Url = url
 	return cp
 }
 
-func TextCP(userState *UserState, url string) *ContentPage {
+func TextCP(userState *permissions.UserState, url string) *ContentPage {
 	apc := MosebarkBaseCP(userState)
 	apc.ContentTitle = "Text"
 	apc.ContentHTML = `<p id='textparagraph'>Hi<br/>there<br/></p>`
@@ -85,7 +86,7 @@ func Cps2MenuEntries(cps []ContentPage) MenuEntries {
 
 // Routing for the archlinux.no webpage
 // Admin, search and user management is already provided
-func ServeMosebark(userState *UserState, jquerypath string) MenuEntries {
+func ServeMosebark(userState *permissions.UserState, jquerypath string) MenuEntries {
 	cps := []ContentPage{
 		*OverviewCP(userState, "/"),
 		*TextCP(userState, "/text"),

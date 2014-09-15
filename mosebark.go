@@ -2,9 +2,10 @@ package main
 
 import (
 	"github.com/hoisie/web"
-	"github.com/xyproto/browserspeak"
 	"github.com/xyproto/genericsite"
 	"github.com/xyproto/siteengines"
+	"github.com/xyproto/permissions"
+	"github.com/xyproto/webhandle"
 )
 
 // TODO: Norwegian everywhere
@@ -12,12 +13,7 @@ import (
 
 const JQUERY_VERSION = "2.0.0"
 
-func notFound2(ctx *web.Context, val string) {
-	ctx.ResponseWriter.WriteHeader(404)
-	ctx.ResponseWriter.Write([]byte(browserspeak.NotFound(ctx, val)))
-}
-
-func ServeEngines(userState *genericsite.UserState, mainMenuEntries genericsite.MenuEntries) {
+func ServeEngines(userState *permissions.UserState, mainMenuEntries genericsite.MenuEntries) {
 	// The user engine
 	userEngine := siteengines.NewUserEngine(userState)
 	userEngine.ServePages("mosebark.roboticoverlords.org")
@@ -34,7 +30,7 @@ func ServeEngines(userState *genericsite.UserState, mainMenuEntries genericsite.
 func main() {
 
 	// UserState with a Redis Connection Pool
-	userState := genericsite.NewUserState(4)
+	userState := permissions.NewUserState(4, true, ":6379")
 	defer userState.Close()
 
 	// The archlinux.no webpage,
@@ -43,8 +39,8 @@ func main() {
 	ServeEngines(userState, mainMenuEntries)
 
 	// Compilation errors, vim-compatible filename
-	web.Get("/error", browserspeak.GenerateErrorHandle("errors.err"))
-	web.Get("/errors", browserspeak.GenerateErrorHandle("errors.err"))
+	web.Get("/error", webhandle.GenerateErrorHandle("errors.err"))
+	web.Get("/errors", webhandle.GenerateErrorHandle("errors.err"))
 
 	// Various .php and .asp urls that showed up in the log
 	genericsite.ServeForFun()
