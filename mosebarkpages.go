@@ -5,8 +5,8 @@ import (
 	"time"
 
 	. "github.com/xyproto/genericsite"
+	"github.com/xyproto/permissions2"
 	. "github.com/xyproto/siteengines"
-	"github.com/xyproto/permissions"
 )
 
 // TODO: Font for headline: IM Fell Double Pica SC

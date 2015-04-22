@@ -1,13 +1,6 @@
-The website for Mosebark
-=======================
+Mosebark
+=========
 
-TODO: Switch over to dashboard/skeleton as a new beginning.
+A deprecated project from 2013.
 
-The beginnings of a website for Mosebark
-
-License
-=======
-
-MIT licensed
-
-Alexander Rødseth, 2013
+To be updated or removed.

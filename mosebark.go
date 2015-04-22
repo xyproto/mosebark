@@ -3,8 +3,8 @@ package main
 import (
 	"github.com/hoisie/web"
 	"github.com/xyproto/genericsite"
+	"github.com/xyproto/permissions2"
 	"github.com/xyproto/siteengines"
-	"github.com/xyproto/permissions"
 	"github.com/xyproto/webhandle"
 )
 
